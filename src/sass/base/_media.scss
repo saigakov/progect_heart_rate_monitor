@@ -18,12 +18,11 @@
         }
     }
     .advantage {
-        &__icons {
-            margin: 65px 10px 0 10px;
+        &__wrapper {
+            justify-content: space-around;
         }
-        &__icon {
-            max-width: 240px;
-            margin: 0 10px 0 10px;
+        &__item {
+            width: 158px;
         }
     }
 }
@@ -67,19 +66,6 @@
             font-size: 12px;
         }
     }
-    .advantage {
-        &__icons {
-            margin-top: 25px;
-            flex-direction: column;
-            align-items: center;
-        }
-        &__icon {
-            margin-top: 45px;
-            img {
-                margin-bottom: 20px;
-            }
-        }
-    }
 }
 @media (max-width: 575px) {
     .header {
@@ -116,9 +102,25 @@
             width: 95px;
         }
     }
+    .title {
+        font-size: 24px;
+    }
     .advantage {
-        &__header {
-            font-size: 24px;
+        &__wrapper {
+            flex-direction: column;
+            align-items:center;
+            margin-top: 25px;
+        }
+        &__item {
+            img {
+                margin-top: 40px;
+            }
+        }
+        &__subtitle {
+            margin-top: 10px;
+        }
+        &__descr {
+            margin-top: 10px;
         }
     }
 }
