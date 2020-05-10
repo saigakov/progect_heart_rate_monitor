@@ -25,6 +25,12 @@
             width: 158px;
         }
     }
+    .consultation {
+        padding: 100px 30px 92px 30px;
+        .title {
+            font-size: 31px;
+        }
+    }
 }
 @media (max-width: 767px) {
     .header {
@@ -41,16 +47,7 @@
             font-size: 16px;
         }
     }
-    .button {
-        width: 125px;
-        height: 28px;
-        font-size: 11px;
-        &_main {
-            width: 230px;
-            height: 35px;
-            font-size: 12px;
-        }
-    }
+    
     .promo {
         &__header {
             font-size: 28px;
@@ -64,6 +61,24 @@
         &__icon {
             width: 105px;
             font-size: 12px;
+        }
+        .button {
+            width: 125px;
+            height: 28px;
+            font-size: 11px;
+            &_main {
+                width: 230px;
+                height: 35px;
+                font-size: 12px;
+            }
+        }
+    }
+    .consultation {
+        .title {
+            font-size: 23px;
+        }
+        &__descr {
+            font-size: 17px;
         }
     }
 }
@@ -80,14 +95,7 @@
             font-size: 15px;
         }
     }
-    .button {
-        width: 115px;
-        height: 26px;
-        font-size: 10px;
-        &_main {
-            width: 200px;
-        }
-    }
+    
     .promo {
         &__header {
             font-size: 23px;
@@ -100,6 +108,14 @@
         }
         &__icon {
             width: 95px;
+        }
+        .button {
+            width: 115px;
+            height: 26px;
+            font-size: 10px;
+            &_main {
+                width: 200px;
+            }
         }
     }
     .title {
@@ -121,6 +137,14 @@
         }
         &__descr {
             margin-top: 10px;
+        }
+    }
+    .consultation {
+        .title {
+            font-size: 17px;
+        }
+        &__descr {
+            font-size: 13px;
         }
     }
 }
