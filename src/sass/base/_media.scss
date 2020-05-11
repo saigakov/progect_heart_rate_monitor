@@ -31,6 +31,13 @@
             font-size: 31px;
         }
     }
+    .catalog {
+        &__content {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 }
 @media (max-width: 767px) {
     .header {
@@ -79,6 +86,12 @@
         }
         &__descr {
             font-size: 17px;
+        }
+    }
+    .catalog {
+        &__tab {
+            width: 150px;
+            font-size: 15px;
         }
     }
 }
@@ -145,6 +158,12 @@
         }
         &__descr {
             font-size: 13px;
+        }
+    }
+    .catalog {
+        &__tab {
+            width: 90px;
+            font-size: 10px;
         }
     }
 }
