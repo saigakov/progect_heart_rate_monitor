@@ -38,6 +38,9 @@
             align-items: center;
         }
     }
+    .feedback {
+        padding: 0 20px 71px 20px;
+    }
 }
 @media (max-width: 767px) {
     .header {
@@ -92,6 +95,17 @@
         &__tab {
             width: 150px;
             font-size: 15px;
+        }
+    }
+    .feedback {
+        &__wrapper {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        &__img {
+            margin-right: 0;
+            margin-bottom: 50px;
         }
     }
 }
