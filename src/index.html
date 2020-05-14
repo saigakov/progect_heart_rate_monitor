@@ -104,7 +104,7 @@
             <div class="consultation__descr">
                 Просто заполните форму заявки <br> и мы перезвоним вам в течении 10 минут
             </div>
-            <form class="feed-form" action="#">
+            <form id="consultation-form" class="feed-form" action="#">
                 <input name="name" required placeholder="Ваше имя" type="text">
                 <input name="phone" required placeholder="Ваш телефон" type="number">
                 <input name="email" required placeholder="Ваш E-mail" type="email">
@@ -114,21 +114,27 @@
         </div>
     </section>
 
-    <section class="carousel">
+    <section class="slider">
         <div class="container">
-            <div class="carousel__inner">
-                <div>
-                    <img src="img/carusel/clock1.jpg" alt="slide">
+                <div class="slider__wrap">
+                    <div class="slider__prev"><img src="icons/left.svg" alt=""></div>
+
+                    <div class="slider__wrapper">
+                        <div class="slider__item">
+                            <img src="img/carusel/clock1.jpg" alt="slider">
+                        </div>
+                        <div class="slider__item">
+                            <img src="img/carusel/clock2.jpg" alt="slider">
+                        </div>
+                        <div class="slider__item">
+                            <img src="img/carusel/clock3.jpg" alt="slider">
+                        </div>
+                    </div>
+        
+                    <div class="slider__next"><img src="icons/right.svg" alt=""></div>
                 </div>
-                <div>
-                    <img src="img/carusel/clock2.jpg" alt="slide">
-                </div>
-                <div>
-                    <img src="img/carusel/clock3.jpg" alt="slide">
-                </div>
-            </div>
         </div>
-        </section>
+    </section>
         <section class="catalog">
             <div class="container">
                 <h2 class="title">Каталог пульсометров</h2>
@@ -400,9 +406,9 @@
                 <div class="modal__subtitle">Просто заполните форму заявки</div>
                 <div class="modal__descr">и мы перезвоним вам в течении 10 минут</div>
                 <form class="feed-form feed-form_mt25" action="#">
-                    <input name="name" required placeholder="Ваше имя" type="text">
-                    <input name="phone" required placeholder="Ваш телефон" type="number">
-                    <input name="email" required placeholder="Ваш E-mail" type="email">
+                    <input name="name" placeholder="Ваше имя" type="text">
+                    <input name="phone" placeholder="Ваш телефон" type="number">
+                    <input name="email" placeholder="Ваш E-mail" type="email">
     
                     <button class="button button_submit">заказать кОНСУЛЬТАЦИЮ</button>
                 </form>
@@ -429,6 +435,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/slick.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

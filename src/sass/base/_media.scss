@@ -112,6 +112,11 @@
             font-size: 17px;
         }
     }
+    .slider {
+        &__prev, &__next {
+            margin: 0;
+        }
+    }
     .catalog {
         &__tab {
             width: 150px;
@@ -227,4 +232,26 @@
             height: 30px;
         }
     }
+    .modal {
+        width: 280px;
+        height: 400px;
+        &__close {
+            top: 5px;
+            right: 10px;
+        }
+        &__subtitle {
+            font-size: 15px;
+        }
+        &__descr {
+            font-size: 13px;
+        }
+        input {
+            height: 40px;
+        }
+        button {
+            font-size: 12px;
+        }
+
+    }
+    
 }
