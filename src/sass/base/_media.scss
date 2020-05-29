@@ -124,6 +124,14 @@
             font-size: 17px;
         }
     }
+    .carousel {
+        &__inner {
+            img {
+                width: 60%;
+                margin: 0 auto;
+            }
+        }
+    }
     .catalog {
         &__tab {
             width: 150px;
@@ -142,6 +150,7 @@
         }
     }
     .footer {
+        height: 450px;
         &__info {
             left: 33%;
         }
@@ -248,9 +257,6 @@
         }
         &__subtitle {
             font-size: 15px;
-        }
-        &__descr {
-            display: none;
         }
 
     }

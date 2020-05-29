@@ -3,34 +3,33 @@ $(document).ready(function(){
     //carusel jquery
     $('.carousel__inner').slick({
         speed: 1200,
-        prevArrow: '<button type="button" class="slick-prev"><img src="icons/left.svg"</button>',
-        nextArrow: '<button type="button" class="slick-next"><img src="icons/right.svg"</button>',
+        adaptiveHeight: true,
+        prevArrow: '<button type="button" class="slick-prev"><img src="icons/left.svg"></button>',
+        nextArrow: '<button type="button" class="slick-next"><img src="icons/right.svg"></button>',
         responsive: [
             {
                 breakpoint: 992,
                 settings: {
-                    dots: false,
-                    arrows: false,
+                    dots: true,
+                    arrows: false
                 }
             }
-
         ]
-      });
+    });
 
+    //tabs
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
         $(this)
           .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
           .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
-      });
-
-    
+    });
 
     function toggleSlide(item) {
         $(item).each(function(i) {
             $(this).on('click', function(e) {
                 e.preventDefault();
                 $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
-            $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
+                $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
             })
         });
     };
@@ -38,31 +37,30 @@ $(document).ready(function(){
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
 
-    //modal
+    // Modal
 
     $('[data-modal=consultation]').on('click', function() {
         $('.overlay, #consultation').fadeIn('slow');
     });
-
-
-    $('.button_mini').each(function (i) {
-        $(this).on('click', function() {
-            $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
-            $('.overlay, #order').fadeIn('slow');
-        })
-    })
-    
-
     $('.modal__close').on('click', function() {
         $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
     });
 
-    //Валидация
+    $('.button_mini').each(function(i) {
+        $(this).on('click', function() {
+            $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+            $('.overlay, #order').fadeIn('slow');
+        })
+    });
 
-    function valideForms(form) {
+    //validation
+    function validateForms(form){
         $(form).validate({
             rules: {
-                name: "required",
+                name: {
+                    required: true,
+                    minlength: 2
+                },
                 phone: "required",
                 email: {
                     required: true,
@@ -70,32 +68,38 @@ $(document).ready(function(){
                 }
             },
             messages: {
-                name: "Пожалуйста, введите своё имя!",
-                phone: "Пожалуйста, введите номер своего телефона!",
+                name: {
+                    required: "Пожалуйста, введите свое имя",
+                    minlength: jQuery.validator.format("Введите {0} символа!")
+                  },
+                phone: "Пожалуйста, введите свой номер телефона",
                 email: {
-                  required: "Пожалуйста, введите свою почту!",
-                  email: "Введите почту в данном формате name@domain.com"
+                  required: "Пожалуйста, введите свою почту",
+                  email: "Неправильно введен адрес почты"
                 }
-              }
+            }
         });
     };
 
-    valideForms('#consultation-form');
-    valideForms('#consultation form');
-    valideForms('#order form');
+    validateForms('#consultation-form');
+    validateForms('#consultation form');
+    validateForms('#order form');
 
+    //mask number phone
     $('input[name=phone]').mask("+7 (999) 999-99-99");
 
-    //sending letter
-    
+    //send massege
     $('form').submit(function(e) {
         e.preventDefault();
+        let $form = $(this);
+        if(! $form.valid()) return false; 
         $.ajax({
             type: "POST",
             url: "mailer/smart.php",
             data: $(this).serialize()
         }).done(function() {
             $(this).find("input").val("");
+            $(this).find("textaria").val("");
             $('#consultation, #order').fadeOut();
             $('.overlay, #thanks').fadeIn('slow');
 
@@ -104,16 +108,17 @@ $(document).ready(function(){
         return false;
     });
 
-    //Smooth scroll and pageup
+    // Smooth scroll and pageup
+
     $(window).scroll(function() {
-        if ($(this).scrollTop() >1600) {
+        if ($(this).scrollTop() > 1600) {
             $('.pageup').fadeIn();
         } else {
             $('.pageup').fadeOut();
         }
     });
 
-    $("a[href=#up]").click(function(){
+    $("a[href^='#']").click(function(){
         const _href = $(this).attr("href");
         $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
         return false;
